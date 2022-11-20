@@ -1,0 +1,99 @@
+# inspection services api
+allow user to manage inspection images
+- user management
+- project management
+- images management
+- external storage integration
+- export report  
+
+
+## Todo
+* [V] project structure
+* [ ] replace flask-SQLAlchemy with SQLAlchemy
+* [ ] use marshmallow for request params validation
+* [ ] better way for swagger docs setup
+* [ ] setup gunicorn as WSGI
+* [ ] setup nginx as proxy server
+* [ ] setup docker and docker-compose yml
+
+
+## Table of contents
+* environment settings
+* folder structures
+* application structures
+* database settings
+* authentication
+* authorization
+* error handling
+* logging
+* documentations
+
+
+## application structures
+* python blueprints for large application
+* sqlalchemy as orm lib to access data
+
+
+## environment setting and basic command
+``` bash
+pip3 install virtualenv
+
+#create virtual environment
+virtualenv venv
+
+#enter virtual environment for mac
+source venv/bin/activate
+
+deactivate 
+
+#in virtual env, pip stands for pip3
+pip list
+
+#install all packages in the file
+pip install -r requirements.txt
+
+# environment variables file that need to be set, python-dotenv package will pick up values from these files
+
+#.env
+SECRET_KEY
+JWT_SECRET_KEY
+
+# .flaskenv
+export FLASK_ENV
+export FLASK_APP
+export SQLALCHEMY_DATABASE_URI
+export SQLALCHEMY_TRACK_MODIFICATIONS
+
+# run app
+flask run
+```
+
+### commands for db table setup
+``` bash
+ 
+# interact with item through terminal
+flask shell
+
+from src.db.database import db
+
+# only create tables(should create db first, check connection string)
+db.create_all()
+
+db.drop_all()
+```
+
+
+## references
+1. [AUTOMATICALLY LOAD ENVIRONMENT VARIABLES IN FLASK](https://prettyprinted.com/tutorials/automatically_load_environment_variables_in_flask)
+2. [flask tutorials](https://www.youtube.com/watch?v=WFzRy8KVcrM&t=606s)
+3. [marshmallow for request validation](https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow)
+4. [flask sqlalchemy basic usage](https://kknews.cc/code/8gyampn.html)
+5. [flask sqlalchemy basic usage -1](https://www.digitalocean.com/community/tutorials/how-to-use-flask-sqlalchemy-to-interact-with-databases-in-a-flask-application)
+6. [use sqlalchemy instead of flask-sqlalchemy](https://towardsdatascience.com/use-flask-and-sqlalchemy-not-flask-sqlalchemy-5a64fafe22a4)
+7. [build issues for flask in mac ](https://lifesaver.codes/answer/psycopg2-binary-fails-to-install-on-macos-big-sur-11-0-1-and-python-3-9-0-with-possible-workaround-1200)
+8. [flask tutorial video](https://www.youtube.com/watch?v=WFzRy8KVcrM&t=606s)
+9. [bookmarks api tutorial repo](https://github.com/CryceTruly/bookmarker-api)
+10. [flask sqlalchemy video](https://www.youtube.com/watch?v=V3IX_M3fwd0)
+11. [flask-wsgi-nginx](https://www.maxlist.xyz/2020/05/06/flask-wsgi-nginx/)
+12. [flask-with-gunicorn](https://sean22492249.medium.com/flask-with-gunicorn-9a37bca29227)
+13. 
